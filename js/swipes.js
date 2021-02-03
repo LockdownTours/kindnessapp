@@ -3,20 +3,14 @@ $(".leftSwipeHitBox").click(function() {
   if(state === 'intro'){
     goAbout();
   } else { // kindness
-    goKindness();
+    kindnessSelected();
+    saveKindness();
   }
 });
 
 $(".rightSwipeHitBox").click(function() {
-  if(state === 'intro'){
-    // one time push state
     history.pushState("select", "Kindness Select", "#/kindness-select");
     goKindness();
-  } else { // kindness
-    kindnessSelected();
-    saveKindness();
-    // kindnessInProgress();
-  }
 });
 
 $(window).on("popstate", function () {

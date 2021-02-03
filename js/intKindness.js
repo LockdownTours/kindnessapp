@@ -41,8 +41,8 @@ function goKindness(){
       $(".websiteDisclaimer").show().html("[accept kindness to reveal website]");
     } 
     $(".websiteUrl").hide();
-    $(".leftSwipeTxt").html("for another suggestion");
-    $(".rightSwipeTxt").html("to take on the challenge");
+    $(".leftSwipeTxt").html("to take on the challenge");
+    $(".rightSwipeTxt").html("for another suggestion");
   }
 
   function kindnessView(line1, line2, website, image, type){

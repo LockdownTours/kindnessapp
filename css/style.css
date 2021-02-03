@@ -171,7 +171,7 @@ a {
 /*
 * SCREEN TOP
 */
-.kindnessTop, .aboutTop, .contactTop, .completeTop, .progressTop {
+.kindnessTop, .aboutTop, .contactTop, .completeTop, .progressTop, .kindnessSelectedTop {
   position: absolute;
   z-index: 2;
   position: absolute;

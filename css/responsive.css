@@ -10,7 +10,9 @@
 */
 @media all and (min-width: 1200px) {
 
-
+  .kindnessSelectedTop .reg-text {
+    margin: 1vh;
+  }
 
   #contactMessage {
     font-size: 1.5vw;
@@ -20,16 +22,16 @@
     font-size: 2vw;
   }
 
-  .kindnessTop, .aboutTop, .contactTop, .completeTop, .progressTop {
+  .kindnessTop, .aboutTop, .contactTop, .completeTop, .progressTop, .kindnessSelectedTop {
     top: 20vh;
   }
 
   .kindnessTop {
-    top: 22vh;
+    top: 25vh;
   }
 
   .progressTop{
-    top: 15vh;
+    top: 22vh;
   }
 
 }

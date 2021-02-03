@@ -66,7 +66,7 @@ function contactMeClick(){
       updateItem(propertiesToSave);
   }
   function kindnessSelected(){
-    $("#stage").removeClass().addClass("progressTop");
+    $("#stage").removeClass().addClass("kindnessSelectedTop");
     showReminder('in progress');
     $(".swipes, .rightSwipeHitBox, .leftSwipeHitBox, .websiteDisclaimer").hide();
     // Whats next
@@ -118,9 +118,10 @@ function contactMeClick(){
   * KINDNESS IN PROGRESS
   */
  function kindnessInProgress(){
-    // show reminder
-    showReminder('in progress');
-    kindnessSelected();
+   // show reminder
+   showReminder('in progress');
+   kindnessSelected();
+   $("#stage").removeClass().addClass("progressTop");
     $(".whatsNextContainer").show();
     // check date
     if(areFiveOver() == 'times up'){
