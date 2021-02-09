@@ -9,7 +9,6 @@ function init(){
   // Check if in progress
   var propertiesToCheck = loadData();
   var kindness = propertiesToCheck.kindness;
-  console.log(2);
   if(kindness){
     kindnessInProgress();
     kindnessView(kindness.line1, kindness.line2, kindness.website, kindness.image, kindness.type);
