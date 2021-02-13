@@ -15,6 +15,17 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+function saveContact(propertiesToSave){
+    debugger;
+    return firebase.database().ref('contact/').push(propertiesToSave, function(error) {
+        if (error) {     
+            console.log('New save error: ', error)
+        } else {
+            console.log("Contact saved: ", propertiesToSave);
+        }
+    }).getKey();
+}
+
 function newSave(propertiesToSave){
     return firebase.database().ref('kindness/').push(propertiesToSave, function(error) {
         if (error) {     

@@ -44,13 +44,16 @@ function contactMe(){
   var email = '<div class="emailInput input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">@</span></div><input type="text" class="form-control" placeholder="Your Email" id="contactEmail"></div>';
   $(".line2").html("Or contact me in the form below: <textarea class='w-75' rows='5' id='contactMessage'></textarea>" +email+  "<div><button class='btn btn-success m-10' onclick='contactMeClick()'>Submit message</button></div>");
   $(".bg").css("height", "100vh");
+  var isEmail = checkEmail();
+  $("#contactEmail").val(isEmail);
 }
   
 function contactMeClick(){
-  var propertiesToSave = loadData();
+  console.log("SAVE CONTACT"); 
+  var propertiesToSave = {};  
   propertiesToSave.message = $("#contactMessage").val();
   propertiesToSave.contact = $("#contactEmail").val();
-  updateItem(propertiesToSave);
+  saveContact(propertiesToSave);
   $(".line1").html("<span class='yellow'>message sent!</span>")
   $(".line2").html("<span onclick='location.reload()' class='pink cursor-pointer'><u>Return home?</u></span>")
 }

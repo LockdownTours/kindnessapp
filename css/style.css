@@ -63,6 +63,11 @@ body{
   line-height: 12px;
 }
 
+.emailInput{
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
 .bg {
   background-image: url("../img/UO6pL1X.jpg");
   /* NOTBAD: background-color: #1b029a; */
