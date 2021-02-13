@@ -15,6 +15,7 @@ function goKindness(){
   $(".bg").css({"opacity": ".5"});
 
   var uniqueInt = uniqueRandomNum();
+  // uniqueInt = 73;
   // console.log("uniqueInt:", uniqueInt);
   // console.log('line1: ', line1[uniqueInt]);
   // console.log('image: ', image[uniqueInt]);

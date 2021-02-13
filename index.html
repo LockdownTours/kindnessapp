@@ -27,46 +27,7 @@
     <button hidden id="stopConfetti">Stop</button>
     <button hidden id="restartConfetti">Restart</button>        
     <!-- confetti -->
-    <header>  
-        <div class="navbar bg-light navbar-light box-shadow">
-            <div class="d-flex justify-content-between w-100">
-            <div class="row">
-                <!-- mobile -->
-                <div class="isMobile col-1 pt-2 pl-1">
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#navbarHeader"
-                        aria-controls="navbarHeader"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-            <div class="col-6 ml-2">
-                <a class="navbar-brand d-flex align-items-center cursor-pointer">
-                    <h2 class="my-2 text-dark ml-3 ml-md-0 navbarHeader bebas kindnessTitle cursor-pointer" onclick="goAbout()">Drop Kindness Not Bombs</h2>
-                </a>
-            </div>
-            <!-- desktop -->
-            <div class="somethingToSay isDesktop">
-                <a onclick="contactMe()" class="cursor-pointer navbar-brand d-flex align-items-center">
-                    <h2 class="my-2 text-dark ml-3 navbarHeader bebas">I got something to say</h2>
-                    <img src="img/megaphone.png" class="megaphoneImg">
-                </a>
-            </div>
-        </div>
-    </header>
-    <!-- MOBILE HEADER -->
-    <div class="isMobile navbar bg-light navbar-light somethingToSayMobile">
-        <h2 onclick="contactMe()" class="p-0 cursor-pointer my-2 text-dark ml-0 navbarHeader">
-            <img src="img/megaphone.png" class="megaphoneImg">
-            <span class="bebas text-dark bebas bigger ml-1"> I got something to say </span>
-        </h2>        
-    </div>
-    <!-- mobile header -->
+
     <!-- LEVEL TYPE -->
     <div class="levelBg">
         <span class="levelStaticTxt">
@@ -83,8 +44,8 @@
         <h3><button onclick="tryAgain()" class="btn btn-info tryAgainBtn">Click here to try again</button></h3>        
     </div>
     <div class="swipeContainer">
-        <div class="desktop leftSwipeHitBox"></div>
-        <div class="desktop rightSwipeHitBox"></div>
+        <!-- <div class="desktop leftSwipeHitBox"></div>
+        <div class="desktop rightSwipeHitBox"></div> -->
         <div class="center bebas text-white">
             <div class id="stage">
                 <div class="kindnessSelected statusHeading bigger">
@@ -92,11 +53,46 @@
                         <span class="strongRed">KINDNESS SELECTED:</span>
                     </p>
                 </div>
-                <p class="reg-text line1">
-                    <span class="bigger green">What....</span> 
-                    <span class="blue">What is this thing?</span>
-                </p>
-                <p class="reg-text line2">
+                <div class="reg-text line1" style="background: white; color: #555; width: 650px; border-radius: 8px; margin-left: 19%;">
+                    <img src="img/turquoise_icon.png" width="225px" 
+                    style="
+                    margin-top: 25px;
+                    border-radius: 200px;"
+                    >
+                    <!-- CENTER -->
+                    <p style="margin-top: 20px; font-size: 35px; color: black" >dropkindnessnotbombs.com</p>
+                    <p style="margin-top: 10px">100+ actions to make the world a better place to live in</p>
+                    <p class="reg-text">
+                        <button style="font-size: 30px;" class="btn btn-success btn-large">Click here to get started</button>
+                    </p>
+                    <!-- CENTER -->
+                    <!-- TAP LEFT -->
+                    <p class="reg-text m-0">
+                        <span class="bigger tapLeft">
+                            <span id="swipeColor1">
+                                <span class="interactiveTxt"></span> LEFT
+                            </span>
+                        </span> 
+                        <span class="leftSwipeTxt">
+                            if you want to know more
+                        </span>
+                    </p>
+                    <!-- TAP LEFT -->
+                    <!-- TAP RIGHT -->
+                    <p class="reg-text m-0" style="padding-bottom: 10px;">
+                        <span class="rightSwipeTxt text-black">
+                            to get in touch
+                        </span>
+                        <span class="bigger">
+                            <span id="swipeColor2">
+                                <span class="interactiveTxt"></span> RIGHT
+                            </span>
+                        </span> 
+                    </p>
+                    <!-- TAP RIGHT -->
+                    
+                </div>
+                <!-- <p class="reg-text line2">
                     Sort of like Tinder but instead of being offered singles in your area<br> you perform actions to make the world a better place to live in
                 </p>
                 <p class="reg-text websiteDisclaimer"></p>
@@ -122,7 +118,7 @@
                             </span>
                         </span> 
                     </p>
-                </div>            
+                </div>             -->
 
                 <!-- WHAT'S NEXT -->
                 <div class="whatsNextContainer">
@@ -204,18 +200,6 @@
         </div>
     </div>
     <!-- email progress -->
-
-        
-    <!-- FOLLOW ME -->
-    <div class="followMe">
-        <a href="https://twitter.com/mr_moonhead" target="_blank">
-            <img src="img/twitter.png" alt="twitter">
-        </a>
-        <a href="https://www.instagram.com/maxbye/" target="_blank">
-            <img src="img/instagram.png" alt="instagram">
-        </a>
-    </div>
-
 
     <!-- DISCLAIMER -->
     <div class="cookiedisclaimer">  

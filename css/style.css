@@ -64,12 +64,12 @@ body{
 }
 
 .bg {
-  background-image: url("../img/UO6pL1X.jpg");
+  background-image: url("../img/paper_grenade.png");
   /* NOTBAD: background-color: #1b029a; */
-  height: 90%; 
-  opacity: .5;
-
-
+  height: 100%; 
+  
+  
+  /* opacity: .5; */
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -180,7 +180,7 @@ a {
 }
 
 .aboutTop {
-  top: 30vh;
+  top: 1vh;
 }
 
 .progressTop{
@@ -220,7 +220,7 @@ a {
 }
 
 .reg-text{  
-  color: white;
+  /* color: white; */
   font-size: 3.5vw;
   margin: 20px;
 }
