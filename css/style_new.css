@@ -1,0 +1,26 @@
+@font-face {
+  font-family: BebasNeue;
+  src: url(../font/BebasNeue-webfont.woff);
+}
+@font-face {
+  font-family: HelveticaNeueThin;
+  src: url(../font/helvetica/HelveticaNeueThin.ttf);
+}
+@font-face {
+  font-family: HelveticaNeuBold;
+  src: url(../font/helvetica/HelveticaNeueBd.ttf);
+}
+
+
+.bebasNeue {
+  font-family: BebasNeue;
+}
+
+.helveticaNeuBold{
+  font-family: HelveticaNeuBold;
+}
+
+.helveticaNeuThin{
+  font-family: HelveticaNeuThin;
+}
+
