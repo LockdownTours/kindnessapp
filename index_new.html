@@ -53,8 +53,11 @@
               class="flex items-center justify-center sm:items-stretch sm:justify-start"
             >
               <div class="flex-shrink-0 flex items-center">
-                <button class="hover:bg-gray-200 p-4">
-                  <h2 class="bebasNeue text-2xl">Learn More</h2>
+                <h2 class="bebasNeue text-2xl titleNav">
+                  Drop Kindness Not Bombs
+                </h2>
+                <button class="hover:bg-gray-200 p-4 homeBtnNav">
+                  <h2 class="bebasNeue text-2xl">Go Home</h2>
                 </button>
               </div>
             </div>
@@ -79,27 +82,33 @@
       <!-- nav bar-->
       <!-- WEBSITE CONTENT -->
       <div class="flex items-center justify-center h-screen">
-        <div
-          id="animationsHere"
-          class="animate__animated animate__lightSpeedInLeft"
-        >
+        <div id="animationsHere" class="animate__animated">
           <div
-            class="bg-indigo-800 text-white font-bold rounded-lg border shadow-lg p-10"
+            class="bg-white text-white font-bold rounded-lg border shadow-lg p-10"
+            id="kindness__content"
           >
-            <div class="kindnessSuggestions" id="kindness__suggestions"></div>
-            Centered Content
+            <p class="kindnessSuggestions text-black text-center mb-5">
+              Centered Content
+            </p>
+            <button
+              class="button1 m-2 rounded-md bg-gradient-to-br from-green-400 p-5 w-full bg-indigo-800"
+            ></button>
+            <button
+              class="button2 m-2 rounded-md bg-gradient-to-br from-yellow-400 p-5 w-full bg-pink-500"
+            ></button>
+            <button
+              class="button3 m-2 rounded-md bg-gradient-to-br from-green-400 p-5 w-full bg-green-900"
+            ></button>
           </div>
         </div>
       </div>
       <!-- content -->
-
-      <!-- $("#animationsHere").removeClass();
-setTimeout(function(){ $("#animationsHere").addClass("animate__animated animate__lightSpeedInLeft"); }, 5); -->
-
-      <!-- animate__flipInX animate__flipInY animate__lightSpeedInRight animate__lightSpeedInLeft animate__rotateIn animate__flip animate__jackInTheBox -->
-      <!-- animate__zoomIn animate__rollIn animate__zoomIn animate__zoomIn  -->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="js/animate.js"></script>
+    <script src="js_new/animate.js"></script>
+    <script src="js_new/views.js"></script>
+    <script>
+      homepage();
+    </script>
   </body>
 </html>
