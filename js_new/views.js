@@ -6,7 +6,8 @@ function homepage() {
   $(".button1").show().html("Click here to get started ❤️");
   $(".button2").show().html("Click to find out more about this website 🧐");
   $(".button3").show().html("Click here to contact me 📬");
-  $(".titleNav").show();
+  // $(".titleNav").show();
+  $(".homeBtnNav").show();
 }
 
 function hideAll() {
