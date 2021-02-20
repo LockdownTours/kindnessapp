@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/style_new.css" />
+    <link rel="stylesheet" href="css/colors_new.css" />
     <link rel="stylesheet" href="css/tailwind.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -41,82 +42,61 @@
     <title>Drop Kindness Not Bombs</title>
   </head>
   <body>
-    <!-- NAVBAR -->
-    <nav class="bg-gray-50" id="kindness__navbar">
-      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div class="relative flex items-center justify-between h-16">
+    <div w3-include-html="navbar.html"></div>
+    <!-- <div
+      class="block rounded-md text-white font-extrabold text-center p-6 h-20"
+    ></div> -->
+    <div class="w-full md:pb-0 h-screen bg-cover bg-center kindnessBg">
+      <div class="pt-20 h-screen flex items-center justify-center">
+        <!-- WEBSITE CONTENT -->
+        <div
+          id="animationsHere"
+          class="animate__animated w-full sm:w-8/12 lg:w-6/12"
+        >
           <div
-            class="flex items-center justify-center sm:items-stretch sm:justify-start"
-          >
-            <div class="flex-shrink-0 flex items-center">
-              <h2 class="bebasNeue text-2xl titleNav">
-                Drop Kindness Not Bombs
-              </h2>
-              <button class="hover:bg-gray-200 p-4 homeBtnNav">
-                <h2 class="bebasNeue text-2xl">
-                  <img
-                    src="img/heart.png"
-                    class="float-left mr-2 mt-1"
-                    alt="megaphone"
-                    width="23px"
-                  />
-                  Home
-                </h2>
-              </button>
-            </div>
-          </div>
-          <div
-            class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
-          >
-            <button class="hover:bg-gray-200 p-4">
-              <h2 class="bebasNeue text-2xl">
-                Feedback
-                <img
-                  src="img/megaphone_black.png"
-                  class="float-right ml-2"
-                  alt="megaphone"
-                  width="30px"
-                />
-              </h2>
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!-- nav bar-->
-    <!-- WEBSITE CONTENT -->
-    <div
-      class="bg-green-300 w-full h-screen bg-cover bg-center"
-      style="background-image: url('img/cooking-5880136_1920.jpg')"
-    >
-      <div class="flex items-center justify-center h-screen">
-        <div id="animationsHere" class="animate__animated">
-          <div
-            class="bg-white text-white font-bold rounded-lg border shadow-lg p-10 m-5"
+            class="md:text-lg bg-white text-white font-bold rounded-lg sm:border shadow-lg p-5 pb-2"
             id="kindness__content"
           >
-            <p class="kindnessSuggestions text-black text-center mb-5">
-              Centered Content
+            <img
+              class="mx-auto w-40 md:w-60 rounded-full flex items-center justify-center kindnessLogo mb-5"
+              src="img/turquoise_icon.png"
+              alt="flower turquoise"
+            />
+            <p class="kindnessSuggestions text-black text-center mb-5"></p>
+            <button
+              class="md:text-lg button1 my-2 rounded-md bg-gradient-to-br from-green-400 px-2 p-5 w-full bg-indigo-800"
+            ></button>
+            <button
+              class="md:text-lg button2 my-2 rounded-md bg-gradient-to-br from-yellow-400 px-2 p-5 w-full bg-pink-500"
+            ></button>
+            <button
+              class="md:text-lg button3 my-2 rounded-md bg-gradient-to-br from-green-400 px-2 p-5 w-full bg-green-900"
+            ></button>
+            <p
+              class="underline naughty-text text-gray-700 text-center mt-2 cursor-pointer"
+            >
+              Cancel
             </p>
-            <button
-              class="button1 m-2 rounded-md bg-gradient-to-br from-green-400 p-5 w-full bg-indigo-800"
-            ></button>
-            <button
-              class="button2 m-2 rounded-md bg-gradient-to-br from-yellow-400 p-5 w-full bg-pink-500"
-            ></button>
-            <button
-              class="button3 m-2 rounded-md bg-gradient-to-br from-green-400 p-5 w-full bg-green-900"
-            ></button>
           </div>
         </div>
       </div>
       <!-- content -->
     </div>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-database.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js_new/include.js"></script>
     <script src="js_new/animate.js"></script>
     <script src="js_new/views.js"></script>
+    <script src="js_new/contact.js"></script>
+    <script src="js_new/localStorage.js"></script>
+    <script src="js_new/firebase.js"></script>
     <script>
-      homepage();
+      $(document).ready(function () {
+        homepage();
+      });
     </script>
   </body>
 </html>

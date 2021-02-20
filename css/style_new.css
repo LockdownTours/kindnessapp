@@ -11,16 +11,24 @@
   src: url(../font/helvetica/HelveticaNeueBd.ttf);
 }
 
+.homeBtnNav {
+  display: none;
+}
 
 .bebasNeue {
   font-family: BebasNeue;
 }
 
-.helveticaNeuBold{
+.helveticaNeuBold {
   font-family: HelveticaNeuBold;
 }
 
-.helveticaNeuThin{
+.helveticaNeuThin {
   font-family: HelveticaNeuThin;
 }
 
+@media (max-height: 600px) {
+  .kindnessLogo {
+    display: none !important;
+  }
+}
