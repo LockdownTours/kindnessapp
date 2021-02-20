@@ -22,6 +22,7 @@ function hideAll() {
   $(
     ".naughty-text, .kindnessLogo, .kindnessSuggestions, .homeBtnNav, .button1, .button2, .button3, .titleNav"
   ).hide();
+  $(".button1").attr("disabled", false);
 }
 
 function about() {
@@ -52,15 +53,14 @@ function contact() {
   var line4 =
     "<textarea class='p-2 mt-5 border w-full' rows='5' id='contact__message' placeholder='Please enter your message here'></textarea>";
   var line5 =
-    '<div class="my-3 flex rounded-md shadow-sm"><span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 bg-gradient-to-br from-yellow-400 p-1 bg-pink-500 text-sm">✉️</span><input type="text" id="contact__email" class="border p-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="enter email address"/></div>';
+    '<div class="my-3 flex rounded-md shadow-sm"><span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 bg-gradient-to-br from-yellow-400 p-1 bg-pink-500 text-sm">✉️</span><input type="text" id="contact__email" onkeyup="canSumbit()" class="border p-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="enter email address"/></div>';
   $(".kindnessSuggestions")
     .show()
     .html(line1 + line2 + line3 + line4 + line5);
-  // validateEmail($("#contact__email").val());
   $(".button1")
     .show()
     .html("Submit")
-    .attr("disabled", true)
+    .attr("disabled", "true")
     .attr("onclick", "submitMessage()");
   $(".naughty-text").show().html("Cancel").attr("onclick", "homepage()");
 }

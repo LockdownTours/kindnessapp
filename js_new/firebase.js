@@ -14,15 +14,14 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 function saveContact(propertiesToSave) {
-  debugger;
   return firebase
     .database()
     .ref("contact/")
     .push(propertiesToSave, function (error) {
       if (error) {
-        console.log("New save error: ", error);
+        messageSent("failure");
       } else {
-        console.log("Contact saved: ", propertiesToSave);
+        messageSent("success");
       }
     })
     .getKey();

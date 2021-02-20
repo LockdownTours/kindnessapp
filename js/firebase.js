@@ -1,50 +1,63 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
-    apiKey: "AIzaSyDcTrvSzLTiS2eG2Qa5oCKcESJHwcX8Rc8",
-    authDomain: "lockdowntours-2462b.firebaseapp.com",
-    databaseURL: "https://lockdowntours-2462b.firebaseio.com",
-    projectId: "lockdowntours-2462b",
-    storageBucket: "lockdowntours-2462b.appspot.com",
-    messagingSenderId: "840910521569",
-    appId: "1:840910521569:web:72328ff4fc1bd2941963a0",
-    measurementId: "G-P8S69EY9NK"
+  apiKey: "AIzaSyDcTrvSzLTiS2eG2Qa5oCKcESJHwcX8Rc8",
+  authDomain: "lockdowntours-2462b.firebaseapp.com",
+  databaseURL: "https://lockdowntours-2462b.firebaseio.com",
+  projectId: "lockdowntours-2462b",
+  storageBucket: "lockdowntours-2462b.appspot.com",
+  messagingSenderId: "840910521569",
+  appId: "1:840910521569:web:72328ff4fc1bd2941963a0",
+  measurementId: "G-P8S69EY9NK",
 };
-  
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-function saveContact(propertiesToSave){
-    debugger;
-    return firebase.database().ref('contact/').push(propertiesToSave, function(error) {
-        if (error) {     
-            console.log('New save error: ', error)
-        } else {
-            console.log("Contact saved: ", propertiesToSave);
-        }
-    }).getKey();
+function saveContact(propertiesToSave) {
+  return firebase
+    .database()
+    .ref("contact/")
+    .push(propertiesToSave, function (error) {
+      if (error) {
+        console.log("New save error: ", error);
+      } else {
+        console.log("Contact saved: ", propertiesToSave);
+      }
+    })
+    .getKey();
 }
 
-function newSave(propertiesToSave){
-    return firebase.database().ref('kindness/').push(propertiesToSave, function(error) {
-        if (error) {     
-            console.log('New save error: ', error)
-        } else {
-            console.log("New save success! Placing to local storage: ", propertiesToSave);
-            localStorage.setItem('userData', JSON.stringify(propertiesToSave));
-        }
-    }).getKey();
+function newSave(propertiesToSave) {
+  return firebase
+    .database()
+    .ref("kindness/")
+    .push(propertiesToSave, function (error) {
+      if (error) {
+        console.log("New save error: ", error);
+      } else {
+        console.log(
+          "New save success! Placing to local storage: ",
+          propertiesToSave
+        );
+        localStorage.setItem("userData", JSON.stringify(propertiesToSave));
+      }
+    })
+    .getKey();
 }
 
-function updateIdInDb(propertiesToSave){
-    firebase.database().ref('kindness/' + propertiesToSave.id).set(propertiesToSave, function(error) {
-    if (error) {     
-        console.log('Update error: ', error)
-    } else {
-        console.log("Saving to local storage: ", propertiesToSave);        
-        localStorage.setItem('userData', JSON.stringify(propertiesToSave));        
-    }
+function updateIdInDb(propertiesToSave) {
+  firebase
+    .database()
+    .ref("kindness/" + propertiesToSave.id)
+    .set(propertiesToSave, function (error) {
+      if (error) {
+        console.log("Update error: ", error);
+      } else {
+        console.log("Saving to local storage: ", propertiesToSave);
+        localStorage.setItem("userData", JSON.stringify(propertiesToSave));
+      }
     });
 }
 
@@ -82,9 +95,9 @@ function updateIdInDb(propertiesToSave){
 //     firebase.database().ref('/kindness').once('value').then((snapshot) => {
 //         var data = snapshot.val();
 //         Object.keys(data).forEach(function (item) {
-//             if(data[item].id == id){  
+//             if(data[item].id == id){
 //                 // updating id with the kindness
-//                 data[item].kindness = kindness;            
+//                 data[item].kindness = kindness;
 //                 updateIdInDb(item, data[item])
 //             }
 //         });
@@ -94,9 +107,9 @@ function updateIdInDb(propertiesToSave){
 //     firebase.database().ref('/kindness').once('value').then((snapshot) => {
 //         var data = snapshot.val();
 //         Object.keys(data).forEach(function (item) {
-//             if(data[item].id == id){  
+//             if(data[item].id == id){
 //                 // updating id with the kindness
-//                 data[item].kindness = kindness;            
+//                 data[item].kindness = kindness;
 //                 updateIdInDb(item, data[item])
 //             }
 //         });
