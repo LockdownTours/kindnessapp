@@ -27,6 +27,7 @@ function loadData() {
 
 // message sent
 function messageSent(state) {
+  $(".homeBtnNav").show();
   hideAll();
   if (state == "success") {
     line1 = "Message sent 💌 <br>Thanks so much! 😘 ";
