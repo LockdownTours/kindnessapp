@@ -7,7 +7,10 @@ function homepage() {
     .html(
       "<span class='red'>Sick of lockdown?</span> <br> Try one of 100+ Actions to make the world a better place to live in"
     );
-  $(".button1").show().html("Click here to get started ❤️");
+  $(".button1")
+    .show()
+    .html("Click here to get started ❤️")
+    .attr("onclick", "chooseKindness()");
   $(".button2")
     .show()
     .html("Click to find out more about this website 🧐")
@@ -63,4 +66,19 @@ function contact() {
     .attr("disabled", "true")
     .attr("onclick", "submitMessage()");
   $(".naughty-text").show().html("Cancel").attr("onclick", "homepage()");
+}
+
+function chooseKindness() {
+  getData();
+}
+
+function failedLoadGoogleData() {
+  hideAll();
+  var line1 = "<p>Unable to pull suggestions 😕</p>";
+  $(".kindnessSuggestions").show().html(line1);
+
+  $(".button1")
+    .show()
+    .html("Click here to try again")
+    .attr("onclick", "tryAgain()");
 }
