@@ -1,3 +1,10 @@
+function hideAll() {
+  $(
+    ".artistDisclaimer, .naughty-text, .kindnessLogo, .kindnessSuggestions, .homeBtnNav, .button1, .button2, .button3, .titleNav"
+  ).hide();
+  $(".button1, .button2, .button3").attr("disabled", false);
+}
+
 function homepage() {
   hideAll();
   $(".kindnessBg").css("background-image", "url('img/UO6pL1X.jpg')");
@@ -10,7 +17,7 @@ function homepage() {
   $(".button1")
     .show()
     .html("Click here to get started ❤️")
-    .attr("onclick", "chooseKindness()");
+    .attr("onclick", "getData()");
   $(".button2")
     .show()
     .html("Click to find out more about this website 🧐")
@@ -21,11 +28,38 @@ function homepage() {
     .attr("onclick", "contact()");
 }
 
-function hideAll() {
-  $(
-    ".naughty-text, .kindnessLogo, .kindnessSuggestions, .homeBtnNav, .button1, .button2, .button3, .titleNav"
-  ).hide();
-  $(".button1").attr("disabled", false);
+function displayKindness(kindness) {
+  hideAll();
+  $(".kindnessBg").css("background-image", "url('img/" + kindness.image + "')");
+  $(".artistDisclaimer, .homeBtnNav").show();
+  $(".artistDisclaimer").html(
+    "<span class='darkBlue'>" + kindness.credit + "</span>"
+  );
+  var website =
+    " <u><a class='darkBlue' href='" +
+    kindness.website +
+    "'>" +
+    kindness.website +
+    "</a></u>";
+  $(".kindnessSuggestions").show().html(kindness.line1);
+  if (kindness.line2) {
+    $(".kindnessSuggestions").append("<br>" + kindness.line2);
+  }
+  if (website) {
+    $(".kindnessSuggestions").append(website);
+  }
+  $(".button1")
+    .show()
+    .html("Go to the next suggestion")
+    .attr("onclick", "getData()");
+  $(".button2")
+    .show()
+    .html("Let me see the previous suggestion again")
+    .attr("onclick", "goBack()");
+  $(".button3")
+    .show()
+    .html("Click here to accept the challenge")
+    .attr("onclick", "takeOnKindness()");
 }
 
 function about() {
@@ -66,10 +100,6 @@ function contact() {
     .attr("disabled", "true")
     .attr("onclick", "submitMessage()");
   $(".naughty-text").show().html("Cancel").attr("onclick", "homepage()");
-}
-
-function chooseKindness() {
-  getData();
 }
 
 function failedLoadGoogleData() {

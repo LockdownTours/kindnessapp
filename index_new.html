@@ -43,9 +43,6 @@
   </head>
   <body>
     <div w3-include-html="navbar.html"></div>
-    <!-- <div
-      class="block rounded-md text-white font-extrabold text-center p-6 h-20"
-    ></div> -->
     <div class="w-full md:pb-0 h-screen bg-cover bg-center kindnessBg">
       <div class="pt-20 h-screen flex items-center justify-center">
         <!-- WEBSITE CONTENT -->
@@ -54,7 +51,7 @@
           class="animate__animated w-full sm:w-8/12 lg:w-6/12"
         >
           <div
-            class="md:text-lg bg-white text-white font-bold rounded-lg sm:border shadow-lg p-5 pb-2"
+            class="md:text-lg bg-white text-white font-bold rounded-lg sm:border shadow-lg p-5 pb-2 mx-10 md:mx-0"
             id="kindness__content"
           >
             <img
@@ -62,7 +59,7 @@
               src="img/turquoise_icon.png"
               alt="flower turquoise"
             />
-            <p class="kindnessSuggestions text-black text-center mb-5"></p>
+            <p class="kindnessSuggestions text-black text-center mb-2"></p>
             <button
               disabled
               class="md:text-lg button1 my-2 rounded-md bg-gradient-to-br from-green-400 px-2 p-5 w-full bg-indigo-800"
@@ -82,6 +79,15 @@
         </div>
       </div>
       <!-- content -->
+    </div>
+    <div class="bg-white text-black w-full p-2 artistDisclaimer"></div>
+    <div class="bg-black text-gray-300">
+      <div class="flex-row flex">
+        <img src="img/cookie_monster.png" width="100px" />
+        <p class="mt-6">
+          <u> I'm good with cookies 🍪</u>
+        </p>
+      </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-analytics.js"></script>

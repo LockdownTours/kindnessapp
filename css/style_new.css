@@ -11,8 +11,11 @@
   src: url(../font/helvetica/HelveticaNeueBd.ttf);
 }
 
-.button1:disabled {
+.button1:disabled,
+.button2:disabled,
+.button3:disabled {
   opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .homeBtnNav {
