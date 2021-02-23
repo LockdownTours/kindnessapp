@@ -28,6 +28,8 @@ function homepage() {
     .attr("onclick", "contact()");
 }
 
+var saveKindness;
+
 function displayKindness(kindness) {
   hideAll();
   $(".kindnessBg").css("background-image", "url('img/" + kindness.image + "')");
@@ -35,6 +37,7 @@ function displayKindness(kindness) {
   $(".artistDisclaimer").html(
     "<span class='darkBlue'>" + kindness.credit + "</span>"
   );
+  saveKindness = kindness;
   var website =
     " <u><a class='darkBlue' href='" +
     kindness.website +
@@ -56,6 +59,7 @@ function displayKindness(kindness) {
     .show()
     .html("Let me see the previous suggestion again")
     .attr("onclick", "goBack()");
+
   $(".button3")
     .show()
     .html("Click here to accept the challenge")

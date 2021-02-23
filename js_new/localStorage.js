@@ -9,6 +9,10 @@ function getEmail() {
   }
 }
 
+function takeOnKindness() {
+  console.log(saveKindness);
+}
+
 // save data
 function saveData(key, data) {
   var savedData = loadData();
