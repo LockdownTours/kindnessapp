@@ -35,15 +35,3 @@ function saveFirebase(key, propertiesToSave) {
     })
     .getKey();
 }
-
-function kindnessSelected(propertiesToSave) {
-  return firebase
-    .database()
-    .ref("selected/")
-    .push(propertiesToSave, function (error) {
-      if (error) {
-      } else {
-      }
-    })
-    .getKey();
-}

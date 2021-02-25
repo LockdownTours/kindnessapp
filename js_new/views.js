@@ -92,9 +92,10 @@ function kindnessSelected(state) {
   hideAll();
   if (state == "success") {
   } else {
-    console.log(1);
     line1 =
-      "Oh no! Something went wrong 😢 <br><u onclick='contact()'>Please click here to tell me what you were trying to do</u>? ";
+      "Oh no! Something went wrong 😢 <br><u class='darkBlue' onclick='contact()'>Please click here to tell me what you were trying to do</u>? ";
+    $(".kindnessSuggestions").show().html(line1);
+    $(".button2").show().html("Go Home 🏠").attr("onclick", "homepage()");
   }
 }
 
