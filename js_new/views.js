@@ -1,7 +1,7 @@
 // hide all
 function hideAll() {
   $(
-    ".artistDisclaimer, .naughty-text, .kindnessLogo, .kindnessSuggestions, .homeBtnNav, .button1, .button2, .button3, .titleNav"
+    ".selectedKindnessImg, .artistDisclaimer, .naughty-text, .kindnessLogo, .kindnessSuggestions, .homeBtnNav, .button1, .button2, .button3, .titleNav"
   ).hide();
   $(".button1, .button2, .button3").attr("disabled", false);
 }
@@ -47,9 +47,11 @@ function displayKindness(kindness) {
     "'>" +
     kindness.website +
     "</a></u>";
-  $(".kindnessSuggestions").show().html(kindness.line1);
+  $(".kindnessSuggestions")
+    .show()
+    .html(kindness.line1 + "<br>");
   if (kindness.line2) {
-    $(".kindnessSuggestions").append("<br>" + kindness.line2);
+    $(".kindnessSuggestions").append(kindness.line2);
   }
   if (website) {
     $(".kindnessSuggestions").append(website);
@@ -89,8 +91,17 @@ function about() {
 
 // kindness selected
 function kindnessSelected(state) {
-  hideAll();
   if (state == "success") {
+    displayKindness(saveKindness);
+    $(".selectedKindnessImg")
+      .show()
+      .attr("src", "img/" + saveKindness.image);
+    $(".button1").hide();
+    $(".button2")
+      .attr("disabled", false)
+      .html("What now?")
+      .attr("onclick", "whatNow()");
+    $(".button3").html("Kindness complete!");
   } else {
     line1 =
       "Oh no! Something went wrong 😢 <br><u class='darkBlue' onclick='contact()'>Please click here to tell me what you were trying to do</u>? ";
@@ -99,15 +110,45 @@ function kindnessSelected(state) {
   }
 }
 
+// what now
+function whatNow() {
+  hideAll();
+  var line1 = "<p>Go out and perform the kindness 👣 </p>";
+  var line2 = "<p>and come back here when it's done 👏 </p>";
+  $(".kindnessSuggestions")
+    .show()
+    .html(line1 + line2);
+  $(".button1")
+    .show()
+    .html("Okay got it 👍")
+    .attr("onclick", "kindnessSelected('success')");
+  $(".button2")
+    .show()
+    .attr("disabled", false)
+    .html("I'm still confused 😕")
+    .attr("onclick", "stillConfused()");
+}
+
+// still confused
+function stillConfused() {
+  contact(
+    "<p>Sorry your stuck! Sling us a message and I'll help you out ✋</p>"
+  );
+}
+
 // contact
-function contact() {
+function contact(msg) {
   hideAll();
   $(".kindnessBg").css("background-image", "url('img/kindnessLogo.png')");
   $(".homeBtnNav").show();
-  var line1 = "<p class='red'>I would ❤️️&nbsp; to hear from you!</p>";
-  var line2 =
-    "<p>Please <a class='blue' href='https://twitter.com/mr_moonhead'><u>follow or hit me on twitter</u></a></p>";
-  var line3 = "<p>Otherwise, please write to me below 📝</p>";
+  var line1 = msg || "<p class='red'>I would ❤️️&nbsp; to hear from you!</p>";
+  var line2 = "";
+  var line3 = "";
+  if (!msg) {
+    line2 =
+      "<p>Please <a class='blue' href='https://twitter.com/mr_moonhead'><u>follow or hit me on twitter</u></a></p>";
+    line3 = "<p>Otherwise, please write to me below 📝</p>";
+  }
   var line4 =
     "<textarea class='p-2 mt-5 border w-full' rows='5' id='contact__message' placeholder='Please enter your message here'></textarea>";
   var line5 =
