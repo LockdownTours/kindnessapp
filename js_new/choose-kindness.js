@@ -34,7 +34,7 @@ function goBack() {
   };
 
   displayKindness(previousKindness);
-  $(".button2").html("Click here to keep cycling previous suggestions");
+  $(".button2").html("Keep cycling previous");
   canGoBack();
 }
 

@@ -9,10 +9,6 @@ function getEmail() {
   }
 }
 
-function takeOnKindness() {
-  console.log(saveKindness);
-}
-
 // save data
 function saveData(key, data) {
   var savedData = loadData();
@@ -27,18 +23,4 @@ function loadData() {
     return {};
   }
   return JSON.parse(retrievedObject);
-}
-
-// message sent
-function messageSent(state) {
-  $(".homeBtnNav").show();
-  hideAll();
-  if (state == "success") {
-    line1 = "Message sent 💌 <br>Thanks so much! 😘 ";
-  } else if (state == "failure") {
-    line1 =
-      "Oh no! Something went wrong 😢 <br><a class='blue' href='https://twitter.com/mr_moonhead'><u>Mind DMing me on twitter</u></a>? ";
-  }
-  $(".kindnessSuggestions").show().html(line1);
-  $(".button2").show().html("Go Home 🏠").attr("onclick", "homepage()");
 }

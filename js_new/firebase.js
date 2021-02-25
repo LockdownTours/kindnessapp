@@ -13,15 +13,36 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-function saveContact(propertiesToSave) {
+function saveFirebase(key, propertiesToSave) {
   return firebase
     .database()
-    .ref("contact/")
+    .ref(key + "/")
     .push(propertiesToSave, function (error) {
       if (error) {
-        messageSent("failure");
+        if (key == "contact") {
+          messageSent("failure");
+        }
+        if (key == "kindness") {
+          kindnessSelected("failure");
+        }
       } else {
-        messageSent("success");
+        if (key == "contact") {
+          messageSent("success");
+        } else {
+          kindnessSelected("success");
+        }
+      }
+    })
+    .getKey();
+}
+
+function kindnessSelected(propertiesToSave) {
+  return firebase
+    .database()
+    .ref("selected/")
+    .push(propertiesToSave, function (error) {
+      if (error) {
+      } else {
       }
     })
     .getKey();

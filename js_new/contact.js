@@ -5,7 +5,7 @@ function submitMessage() {
   // save email to local
   saveData("email", email);
   // save to firebase
-  saveContact({ email, message });
+  saveFirebase("contact", { email, message });
 }
 
 function validateEmail(email) {

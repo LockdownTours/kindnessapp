@@ -1,3 +1,4 @@
+// hide all
 function hideAll() {
   $(
     ".artistDisclaimer, .naughty-text, .kindnessLogo, .kindnessSuggestions, .homeBtnNav, .button1, .button2, .button3, .titleNav"
@@ -5,6 +6,7 @@ function hideAll() {
   $(".button1, .button2, .button3").attr("disabled", false);
 }
 
+// homepage
 function homepage() {
   hideAll();
   $(".kindnessBg").css("background-image", "url('img/UO6pL1X.jpg')");
@@ -30,6 +32,7 @@ function homepage() {
 
 var saveKindness;
 
+// display kindness
 function displayKindness(kindness) {
   hideAll();
   $(".kindnessBg").css("background-image", "url('img/" + kindness.image + "')");
@@ -57,15 +60,16 @@ function displayKindness(kindness) {
     .attr("onclick", "getData()");
   $(".button2")
     .show()
-    .html("Let me see the previous suggestion again")
+    .html("See the previous suggestion")
     .attr("onclick", "goBack()");
 
   $(".button3")
     .show()
-    .html("Click here to accept the challenge")
+    .html("Accept the challenge")
     .attr("onclick", "takeOnKindness()");
 }
 
+// about
 function about() {
   hideAll();
   $(".kindnessBg").css("background-image", "url('img/kindnessLogo.png')");
@@ -83,6 +87,18 @@ function about() {
   $(".button3").show().html("Click here to contact me 📬");
 }
 
+// kindness selected
+function kindnessSelected(state) {
+  hideAll();
+  if (state == "success") {
+  } else {
+    console.log(1);
+    line1 =
+      "Oh no! Something went wrong 😢 <br><u onclick='contact()'>Please click here to tell me what you were trying to do</u>? ";
+  }
+}
+
+// contact
 function contact() {
   hideAll();
   $(".kindnessBg").css("background-image", "url('img/kindnessLogo.png')");
@@ -106,6 +122,21 @@ function contact() {
   $(".naughty-text").show().html("Cancel").attr("onclick", "homepage()");
 }
 
+// message sent
+function messageSent(state) {
+  $(".homeBtnNav").show();
+  hideAll();
+  if (state == "success") {
+    line1 = "Message sent 💌 <br>Thanks so much! 😘 ";
+  } else if (state == "failure") {
+    line1 =
+      "Oh no! Something went wrong 😢 <br><a class='blue' href='https://twitter.com/mr_moonhead'><u>Mind DMing me on twitter</u></a>? ";
+  }
+  $(".kindnessSuggestions").show().html(line1);
+  $(".button2").show().html("Go Home 🏠").attr("onclick", "homepage()");
+}
+
+// failed to load
 function failedLoadGoogleData() {
   hideAll();
   var line1 = "<p>Unable to pull suggestions 😕</p>";
