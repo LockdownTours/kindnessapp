@@ -13,12 +13,12 @@ function getEmail() {
 function saveData(key, data) {
   var savedData = loadData();
   savedData[key] = data;
-  localStorage.setItem("userData", JSON.stringify(savedData));
+  localStorage.setItem("websiteData", JSON.stringify(savedData));
 }
 
 // retrieve the object from storage
 function loadData() {
-  var retrievedObject = localStorage.getItem("userData");
+  var retrievedObject = localStorage.getItem("websiteData");
   if (!retrievedObject || retrievedObject == "false") {
     return { kindness: {} };
   }
@@ -26,6 +26,6 @@ function loadData() {
 }
 
 function deleteData() {
-  localStorage.setItem("userData", false);
+  localStorage.setItem("websiteData", false);
   location.reload();
 }

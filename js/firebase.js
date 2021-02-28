@@ -41,7 +41,7 @@ function newSave(propertiesToSave) {
           "New save success! Placing to local storage: ",
           propertiesToSave
         );
-        localStorage.setItem("userData", JSON.stringify(propertiesToSave));
+        localStorage.setItem("websiteData", JSON.stringify(propertiesToSave));
       }
     })
     .getKey();
@@ -56,7 +56,7 @@ function updateIdInDb(propertiesToSave) {
         console.log("Update error: ", error);
       } else {
         console.log("Saving to local storage: ", propertiesToSave);
-        localStorage.setItem("userData", JSON.stringify(propertiesToSave));
+        localStorage.setItem("websiteData", JSON.stringify(propertiesToSave));
       }
     });
 }
