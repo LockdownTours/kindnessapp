@@ -10,7 +10,10 @@ function hideAll() {
 function homepage() {
   hideAll();
   $(".kindnessBg").css("background-image", "url('img/UO6pL1X.jpg')");
-  $(".kindnessLogo, .titleNav").show();
+  setTimeout(function () {
+    $(".kindnessLogo, .titleNav").show();
+  }, 50);
+
   $(".kindnessSuggestions")
     .show()
     .html(
@@ -24,28 +27,39 @@ function homepage() {
     .show()
     .html("Click to find out more about this website 🧐")
     .attr("onclick", "about()");
-  $(".button3")
-    .show()
-    .html("Click here to contact me 📬")
-    .attr("onclick", "contact()");
-}
 
-var saveKindness;
+  var savedData = loadData() || {};
+  if (Object.keys(savedData.kindness).length !== 0) {
+    // you got shit saved
+    $(".button3")
+      .show()
+      .html("Return to saved kindness 💾")
+      .attr("onclick", "kindnessSelected('success')");
+  } else {
+    // contact
+    $(".button3")
+      .show()
+      .html("Click here to contact me 📬")
+      .attr("onclick", "contact()");
+  }
+}
 
 // display kindness
 function displayKindness(kindness) {
   hideAll();
   $(".kindnessBg").css("background-image", "url('img/" + kindness.image + "')");
-  $(".artistDisclaimer, .homeBtnNav").show();
+  setTimeout(function () {
+    $(".artistDisclaimer, .homeBtnNav").show();
+  }, 50);
   $(".artistDisclaimer").html(
     "<span class='darkBlue'>" + kindness.credit + "</span>"
   );
   saveKindness = kindness;
   var website =
-    " <u><a class='darkBlue' href='" +
+    " <u><a class='darkBlue' target='blank' href='" +
     kindness.website +
     "'>" +
-    kindness.website +
+    kindness.websiteName +
     "</a></u>";
   $(".kindnessSuggestions")
     .show()
@@ -60,6 +74,7 @@ function displayKindness(kindness) {
     .show()
     .html("Go to the next suggestion")
     .attr("onclick", "getData()");
+
   $(".button2")
     .show()
     .html("See the previous suggestion")
@@ -71,13 +86,49 @@ function displayKindness(kindness) {
     .attr("onclick", "takeOnKindness()");
 }
 
+// kindness complete
+function kindnessComplete() {
+  hideAll();
+  $(".homeBtnNav").show();
+  var line1 = "<p class='blue'>Congrats!</p>";
+  var line2 = "<p>Please enter your email to save progress</p>";
+  var isEmailDisabled = true;
+  var emailValue = "";
+  // if email on file
+  if (getEmail()) {
+    isEmailDisabled = false;
+    line2 = "<p>Please check your email is correct below and click save</p>";
+    emailValue = getEmail();
+  }
+
+  var line3 =
+    '<div class="my-3 flex rounded-md shadow-sm"><span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 bg-gradient-to-br from-yellow-400 p-1 bg-pink-500 text-sm">✉️</span><input type="text" id="contact__email" onkeyup="canSumbit()" class="border p-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="enter email address" value="' +
+    emailValue +
+    '"/></div>';
+  var line4 =
+    '<input type="checkbox" id="complete__letMeContact" name="letMeContact" checked><label value="true" class="font-normal" for="letMeContact"> I would love to thank you for using the app</label>';
+
+  $(".kindnessSuggestions")
+    .show()
+    .html(line1 + line2 + line3 + line4);
+  $(".button1")
+    .show()
+    .html("Save my data 💾")
+    .attr("disabled", isEmailDisabled)
+    .attr("onclick", "emailAddedToKindness()");
+  $(".button2")
+    .show()
+    .html("Perform another kindness ❤️")
+    .attr("onclick", "getData()");
+}
+
 // about
 function about() {
   hideAll();
   $(".kindnessBg").css("background-image", "url('img/kindnessLogo.png')");
   $(".homeBtnNav").show();
   var line1 =
-    "<p>Two years ago I made the Kindness App <small>(almost 10,000 downloads on iOS and Android but whose counting)</small></p>";
+    "<p>Two years ago I made the Kindness App</p><p><small>(almost 10,000 downloads on iOS and Android but whose counting)</small></p>";
   var line2 =
     "<p>This site, has +100 suggestions without any <span class='pink'>platitudes</span>, <span class='blue'>fluff</span> or <span class='green'>schmultz</span>.</p>";
   var line3 =
@@ -85,8 +136,14 @@ function about() {
   $(".kindnessSuggestions")
     .show()
     .html(line1 + line2 + line3);
-  $(".button1").show().html("Click here to get started ❤️");
-  $(".button3").show().html("Click here to contact me 📬");
+  $(".button1")
+    .show()
+    .html("Click here to get started ❤️")
+    .attr("onclick", "getData()");
+  $(".button3")
+    .show()
+    .html("Click here to contact me 📬")
+    .attr("onclick", "contact()");
 }
 
 // kindness selected
@@ -96,12 +153,18 @@ function kindnessSelected(state) {
     $(".selectedKindnessImg")
       .show()
       .attr("src", "img/" + saveKindness.image);
+    $(".naughty-text")
+      .show()
+      .html("Click here to choose a new suggestion")
+      .attr("onclick", "getData()");
     $(".button1").hide();
     $(".button2")
       .attr("disabled", false)
       .html("What now?")
       .attr("onclick", "whatNow()");
-    $(".button3").html("Kindness complete!");
+    $(".button3")
+      .html("Kindness complete!")
+      .attr("onclick", "kindnessCompleted()");
   } else {
     line1 =
       "Oh no! Something went wrong 😢 <br><u class='darkBlue' onclick='contact()'>Please click here to tell me what you were trying to do</u>? ";
@@ -113,6 +176,7 @@ function kindnessSelected(state) {
 // what now
 function whatNow() {
   hideAll();
+  $(".homeBtnNav").show();
   var line1 = "<p>Go out and perform the kindness 👣 </p>";
   var line2 = "<p>and come back here when it's done 👏 </p>";
   $(".kindnessSuggestions")
@@ -139,8 +203,8 @@ function stillConfused() {
 // contact
 function contact(msg) {
   hideAll();
-  $(".kindnessBg").css("background-image", "url('img/kindnessLogo.png')");
   $(".homeBtnNav").show();
+  $(".kindnessBg").css("background-image", "url('img/kindnessLogo.png')");
   var line1 = msg || "<p class='red'>I would ❤️️&nbsp; to hear from you!</p>";
   var line2 = "";
   var line3 = "";
@@ -162,6 +226,11 @@ function contact(msg) {
     .attr("disabled", "true")
     .attr("onclick", "submitMessage()");
   $(".naughty-text").show().html("Cancel").attr("onclick", "homepage()");
+  // load email
+  if (getEmail()) {
+    $(".button1").attr("disabled", false);
+    $("#contact__email").val(getEmail());
+  }
 }
 
 // message sent
@@ -188,4 +257,21 @@ function failedLoadGoogleData() {
     .show()
     .html("Click here to try again")
     .attr("onclick", "tryAgain()");
+}
+
+// final thanks
+function finalThanks() {
+  hideAll();
+  var line1 = "<p>Your data has been saved!</p>";
+  var line2 = "<p>Thanks a million for trying out the app! 😊</p>";
+
+  $(".kindnessSuggestions")
+    .show()
+    .html(line1 + line2);
+
+  $(".button1").show().html("Return home 🏠").attr("onclick", "homepage()");
+  $(".button2")
+    .show()
+    .html("Perform another kindness ❤️")
+    .attr("onclick", "getData()");
 }

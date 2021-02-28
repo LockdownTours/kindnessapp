@@ -18,7 +18,9 @@
   cursor: not-allowed;
 }
 
-.homeBtnNav {
+.homeBtnNav,
+.titleNav,
+.naughty-text {
   display: none;
 }
 
@@ -35,7 +37,8 @@
 }
 
 @media (max-height: 600px) {
-  .kindnessLogo {
+  .kindnessLogo,
+  .smallMobile {
     display: none !important;
   }
 }

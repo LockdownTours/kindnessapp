@@ -13,6 +13,20 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+function addToEntry(id, key, propertiesToSave) {
+  debugger;
+  firebase
+    .database()
+    .ref(key + "/" + id)
+    .set(propertiesToSave, function (error) {
+      if (error) {
+        kindnessSelected("failure");
+      } else {
+        finalThanks();
+      }
+    });
+}
+
 function saveFirebase(key, propertiesToSave) {
   return firebase
     .database()
@@ -21,15 +35,32 @@ function saveFirebase(key, propertiesToSave) {
       if (error) {
         if (key == "contact") {
           messageSent("failure");
-        }
-        if (key == "kindness") {
+        } else {
           kindnessSelected("failure");
         }
+        // if (key == "kindness") {
+        //   kindnessSelected("failure");
+        // }
+        // if (key == "completed") {
+        //   kindnessSelected("failure");
+        // }
       } else {
         if (key == "contact") {
           messageSent("success");
-        } else {
+        }
+
+        if (key == "selected") {
           kindnessSelected("success");
+        }
+
+        if (key == "completed") {
+          // drop confetti
+          $("#startConfetti").click();
+          setTimeout(function () {
+            $("#stopConfetti").click();
+          }, 3000);
+          // kindness view
+          kindnessComplete(saveKindness);
         }
       }
     })

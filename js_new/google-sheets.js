@@ -8,6 +8,7 @@ var currentKindness = {
   line1: [],
   line2: [],
   website: [],
+  websiteName: [],
   image: [],
   thanks: [],
   type: [],
@@ -18,7 +19,6 @@ function getData() {
     intKindness(currentKindness);
     return;
   }
-  console.log("GETTING DATA");
   $.ajax({
     type: "GET",
     url:
@@ -33,6 +33,12 @@ function getData() {
         if (data.feed.entry[i].gsx$line2) {
           // console.log('2nd content: ', data.feed.entry[i].gsx$line2.$t);
           currentKindness.line2.push(data.feed.entry[i].gsx$line2.$t);
+        }
+        if (data.feed.entry[i].gsx$websitename) {
+          // console.log('3rd content: ', data.feed.entry[i].gsx$website.$t);
+          currentKindness.websiteName.push(
+            data.feed.entry[i].gsx$websitename.$t
+          );
         }
         if (data.feed.entry[i].gsx$website) {
           // console.log('3rd content: ', data.feed.entry[i].gsx$website.$t);

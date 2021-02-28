@@ -7,13 +7,13 @@ function intKindness(currentKindness) {
     line1: currentKindness.line1[uniqueInt],
     line2: currentKindness.line2[uniqueInt],
     website: currentKindness.website[uniqueInt],
+    websiteName: currentKindness.websiteName[uniqueInt],
     image: currentKindness.image[uniqueInt],
     credit: currentKindness.thanks[uniqueInt],
     score: 0,
     date: Date.now(),
   };
   displayKindness(currentKindness);
-  console.log(usedKindnessInd);
   canGoBack();
 }
 function goBack() {
@@ -54,4 +54,38 @@ function uniqueRandomNum(line1) {
   }
   usedKindnessInd.push(randomNum);
   return randomNum;
+}
+
+// take on kindness
+function takeOnKindness() {
+  // save to local
+  saveData("kindness", saveKindness);
+  // save to firebase
+  saveFirebase("selected", saveKindness);
+}
+
+var firebaseCompleteId;
+
+// kindness completed
+function kindnessCompleted() {
+  // save to local
+  saveData("kindness", {});
+
+  // save to firebase
+  firebaseCompleteId = saveFirebase("completed", { kindness: saveKindness });
+  console.log(firebaseCompleteId);
+}
+
+// email entered after complete
+function emailAddedToKindness() {
+  // save email
+  var email = $("#contact__email").val();
+  var canContact = $("#complete__letMeContact").is(":checked");
+  addEmailToLocal(email);
+  // save to firebase
+  addToEntry(firebaseCompleteId, "completed", {
+    kindness: saveKindness,
+    email,
+    canContact,
+  });
 }

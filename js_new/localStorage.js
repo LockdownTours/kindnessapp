@@ -19,8 +19,13 @@ function saveData(key, data) {
 // retrieve the object from storage
 function loadData() {
   var retrievedObject = localStorage.getItem("userData");
-  if (!retrievedObject) {
-    return {};
+  if (!retrievedObject || retrievedObject == "false") {
+    return { kindness: {} };
   }
   return JSON.parse(retrievedObject);
+}
+
+function deleteData() {
+  localStorage.setItem("userData", false);
+  location.reload();
 }
