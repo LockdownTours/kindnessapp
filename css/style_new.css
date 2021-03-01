@@ -11,6 +11,11 @@
   src: url(../font/helvetica/HelveticaNeueBd.ttf);
 }
 
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
 .button1:disabled,
 .button2:disabled,
 .button3:disabled {
