@@ -1,7 +1,7 @@
 // hide all
 function hideAll() {
   $(
-    ".selectedKindnessImg, .artistDisclaimer, .naughty-text, .kindnessLogo, .kindnessSuggestions, .homeBtnNav, .button1, .button2, .button3, .titleNav"
+    ".cookieDisclaimer, .selectedKindnessImg, .artistDisclaimer, .naughty-text, .kindnessLogo, .kindnessSuggestions, .homeBtnNav, .button1, .button2, .button3, .titleNav"
   ).hide();
   $(".button1, .button2, .button3").attr("disabled", false);
 }
@@ -11,7 +11,7 @@ function homepage() {
   hideAll();
   $(".kindnessBg").css("background-image", "url('img/UO6pL1X.jpg')");
   setTimeout(function () {
-    $(".kindnessLogo, .titleNav").show();
+    $(".kindnessLogo, .titleNav, .cookieDisclaimer").show();
   }, 50);
 
   $(".kindnessSuggestions")
@@ -51,9 +51,7 @@ function displayKindness(kindness) {
   setTimeout(function () {
     $(".artistDisclaimer, .homeBtnNav").show();
   }, 50);
-  $(".artistDisclaimer").html(
-    "<span class='darkBlue'>" + kindness.credit + "</span>"
-  );
+  $(".artistDisclaimer").html("<p>" + kindness.credit + "</p>");
   saveKindness = kindness;
   var website =
     " <u><a class='darkBlue' target='blank' href='" +
@@ -89,7 +87,7 @@ function displayKindness(kindness) {
 // kindness complete
 function kindnessComplete() {
   hideAll();
-  $(".homeBtnNav").show();
+  $(".homeBtnNav, .cookieDisclaimer").show();
   var line1 = "<p class='blue'>Congrats!</p>";
   var line2 = "<p>Please enter your email to save progress</p>";
   var isEmailDisabled = true;

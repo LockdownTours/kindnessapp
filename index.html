@@ -91,21 +91,19 @@
       </div>
       <!-- content -->
     </div>
-    <div class="bg-white text-black w-full p-2 artistDisclaimer"></div>
-    <div class="bg-black text-gray-300">
-      <div class="flex-row flex cookieDisclaimer">
-        <img src="img/cookie_monster.png" width="100px" />
-        <p class="mt-6">
-          <u onclick="$('.cookieDisclaimer').hide()">
-            I'm good with cookies 🍪</u
-          >
-        </p>
+    <div class="z-0 absolute bottom-0 bg-white text-black w-full">
+      <div class="bg-black text-gray-300">
+        <div class="text-white artistDisclaimer p-2"></div>
+        <div class="flex-row flex cookieDisclaimer">
+          <img src="img/cookie_monster.png" class="w-7 h-7" />
+          <p>
+            This site uses cookies 🍪 |
+            <u class="cursor-pointer" onclick="deleteData()"
+              >Delete site delete</u
+            >
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="cursor-pointer bg-gray-800 text-white w-full">
-        <u onclick="deleteData()">Delete site delete</u> (your
-        data will not be shared)
-      </p>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
