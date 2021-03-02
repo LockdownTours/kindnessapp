@@ -27,6 +27,7 @@ function goBack() {
     line1: currentKindness.line1[lastInd],
     line2: currentKindness.line2[lastInd],
     website: currentKindness.website[lastInd],
+    websiteName: currentKindness.websiteName[lastInd],
     image: currentKindness.image[lastInd],
     credit: currentKindness.thanks[lastInd],
     score: 0,
