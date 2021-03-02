@@ -12,7 +12,7 @@ function homepage() {
   $(".kindnessBg").css("background-image", "url('img/UO6pL1X.jpg')");
   setTimeout(function () {
     $(".kindnessLogo, .titleNav, .cookieDisclaimer").show();
-  }, 50);
+  }, 200);
 
   $(".kindnessSuggestions")
     .show()
@@ -50,7 +50,7 @@ function displayKindness(kindness) {
   $(".kindnessBg").css("background-image", "url('img/" + kindness.image + "')");
   setTimeout(function () {
     $(".artistDisclaimer, .homeBtnNav").show();
-  }, 50);
+  }, 200);
   $(".artistDisclaimer").html("<p>" + kindness.credit + "</p>");
   saveKindness = kindness;
   var website =
