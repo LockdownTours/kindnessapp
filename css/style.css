@@ -11,12 +11,12 @@
   src: url(../font/helvetica/HelveticaNeueBd.ttf);
 }
 
-html,
+/* html,
 body {
   margin: 0;
   height: 100%;
   overflow: hidden;
-}
+} */
 
 .button1:disabled,
 .button2:disabled,
