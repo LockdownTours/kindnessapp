@@ -163,6 +163,23 @@ function kindnessSelected(state) {
     $(".button3")
       .html("Kindness complete!")
       .attr("onclick", "kindnessCompleted()");
+
+    // need to work out if content is bigger than screen
+    setTimeout(function () {
+      var screenRealEstate =
+        $(window).height() -
+        $("#kindness__navbar").height() -
+        $("#kindness__bottom-bar").height();
+      console.log(screenRealEstate);
+      console.log($("#kindness__navbar").height());
+      // console.log($("#kindness__content").height());
+      if (screenRealEstate < $("#kindness__content").height()) {
+        console.log(1);
+        $("#kindness__selected-image").hide();
+      } else {
+        $("#kindness__selected-image").show();
+      }
+    }, 200);
   } else {
     line1 =
       "Oh no! Something went wrong 😢 <br><u class='darkBlue' onclick='contact()'>Please click here to tell me what you were trying to do</u>? ";

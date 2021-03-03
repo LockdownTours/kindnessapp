@@ -11,12 +11,12 @@
   src: url(../font/helvetica/HelveticaNeueBd.ttf);
 }
 
-/* html,
+html,
 body {
   margin: 0;
   height: 100%;
   overflow: hidden;
-} */
+}
 
 .button1:disabled,
 .button2:disabled,
@@ -41,6 +41,17 @@ body {
 
 .helveticaNeuThin {
   font-family: HelveticaNeuThin;
+}
+
+@media (max-height: 800px) {
+  .kindnessLogo {
+    width: 20vh !important;
+    margin-bottom: 5px !important;
+  }
+
+  #kindness__content {
+    margin-top: -10vh;
+  }
 }
 
 @media (max-height: 600px) {

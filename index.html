@@ -60,11 +60,13 @@
             id="kindness__content"
           >
             <img
+              id="kindness__logo"
               class="mx-auto w-40 md:w-60 rounded-full flex items-center justify-center kindnessLogo mb-5"
               src="img/turquoise_icon.png"
               alt="flower turquoise"
             />
             <img
+              id="kindness__selected-image"
               class="mx-auto w-40 md:w-60 rounded-lg flex items-center justify-center hidden selectedKindnessImg mb-2 sm:mb-5"
               src
               alt="kindness suggestion image"
@@ -72,13 +74,13 @@
             <p class="kindnessSuggestions text-black text-center mb-2"></p>
             <button
               disabled
-              class="md:text-lg button1 my-2 rounded-md bg-gradient-to-br from-green-400 px-2 p-5 w-full bg-indigo-800"
+              class="text-xs md:text-base md:text-lg button1 my-2 rounded-md bg-gradient-to-br from-green-400 px-2 p-5 w-full bg-indigo-800"
             ></button>
             <button
-              class="md:text-lg button2 my-2 rounded-md bg-gradient-to-br from-yellow-400 px-2 p-5 w-full bg-pink-500"
+              class="text-xs md:text-base md:text-lg button2 my-2 rounded-md bg-gradient-to-br from-yellow-400 px-2 p-5 w-full bg-pink-500"
             ></button>
             <button
-              class="md:text-lg button3 my-2 rounded-md bg-gradient-to-br from-green-400 px-2 p-5 w-full bg-green-900"
+              class="text-xs md:text-base md:text-lg button3 my-2 rounded-md bg-gradient-to-br from-green-400 px-2 p-5 w-full bg-green-900"
             ></button>
             <p
               class="underline naughty-text text-gray-700 text-center my-2 cursor-pointer"
@@ -90,12 +92,15 @@
       </div>
       <!-- content -->
     </div>
-    <div class="z-0 absolute bottom-0 bg-white text-black w-full">
+    <div
+      class="z-0 absolute bottom-0 bg-white text-black w-full"
+      id="kindness__bottom-bar"
+    >
       <div class="bg-black text-gray-300">
-        <div class="text-white artistDisclaimer p-2"></div>
+        <div class="text-white text-xs md:text-base artistDisclaimer p-2"></div>
         <div class="flex-row flex cookieDisclaimer">
           <img src="img/cookie_monster.png" class="w-7 h-7" />
-          <p>
+          <p class="pt-1 text-xs md:text-base">
             Website uses cookies 🍪 |
             <u class="cursor-pointer" onclick="deleteData()"
               >Delete site delete</u
