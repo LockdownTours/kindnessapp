@@ -55,6 +55,10 @@ body {
 }
 
 @media (max-height: 600px) {
+  #kindness__selected-image {
+    width: 10vh !important;
+  }
+
   .kindnessLogo,
   .smallMobile {
     display: none !important;
