@@ -148,9 +148,7 @@ function about() {
 function kindnessSelected(state) {
   if (state == "success") {
     displayKindness(saveKindness);
-    $(".selectedKindnessImg")
-      .show()
-      .attr("src", "img/" + saveKindness.image);
+
     $(".naughty-text")
       .show()
       .html("Click here to choose a new suggestion")
@@ -170,14 +168,15 @@ function kindnessSelected(state) {
         $(window).height() -
         $("#kindness__navbar").height() -
         $("#kindness__bottom-bar").height();
-      console.log(screenRealEstate);
-      console.log($("#kindness__navbar").height());
+      // console.log(screenRealEstate);
+      // console.log($("#kindness__navbar").height());
       // console.log($("#kindness__content").height());
       if (screenRealEstate < $("#kindness__content").height()) {
-        console.log(1);
-        $("#kindness__selected-image").hide();
+        console.log("screen height too small to show image");
       } else {
-        $("#kindness__selected-image").show();
+        $(".selectedKindnessImg")
+          .show()
+          .attr("src", "img/" + saveKindness.image);
       }
     }, 200);
   } else {
