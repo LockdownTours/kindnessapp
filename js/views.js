@@ -104,11 +104,13 @@ function kindnessComplete() {
     emailValue +
     '"/></div>';
   var line4 =
-    '<input type="checkbox" id="complete__letMeContact" name="letMeContact" checked><label value="true" class="font-normal" for="letMeContact"> I would love to thank you for using the app</label>';
+    '<input type="checkbox" id="complete__letMeContact" name="letMeContact" checked><label value="true" class="font-normal" for="letMeContact"> I would love to thank you for using the app</label><a>';
+  var line5 =
+    "<div class='mt-4 bg-pink-200 border-l-4 border-pink-500 text-pink-700 p-4' role='alert'><p class='font-bold'>As Gerbert the Gray yelled on the bridge of Eldon <span class='italic'>'Your details shall not be passed!'</span></p><p class='font-normal'>Your email will never be shared (even if someone asks nicely)</p></div>";
 
   $(".kindnessSuggestions")
     .show()
-    .html(line1 + line2 + line3 + line4);
+    .html(line1 + line2 + line3 + line4 + line5);
   $(".button1")
     .show()
     .html("Save my data 💾")
@@ -228,12 +230,15 @@ function contact(msg) {
     line3 = "<p>Otherwise, please write to me below 📝</p>";
   }
   var line4 =
-    "<textarea class='p-2 mt-5 border w-full' rows='5' id='contact__message' placeholder='Please enter your message here'></textarea>";
+    "<textarea class='p-2 mt-5 border w-full' rows='4' id='contact__message' placeholder='Please enter your message here'></textarea>";
   var line5 =
     '<div class="my-3 flex rounded-md shadow-sm"><span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 bg-gradient-to-br from-yellow-400 p-1 bg-pink-500 text-sm">✉️</span><input type="text" id="contact__email" onkeyup="canSumbit()" class="border p-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="enter email address"/></div>';
+  var line6 =
+    "<div class='mt-4 bg-pink-200 border-l-4 border-pink-500 text-pink-700 p-4' role='alert'><p class='font-normal'>Your email will never be shared (even if someone asks nicely)</p></div>";
+
   $(".kindnessSuggestions")
     .show()
-    .html(line1 + line2 + line3 + line4 + line5);
+    .html(line1 + line2 + line3 + line4 + line5 + line6);
   $(".button1")
     .show()
     .html("Submit")
