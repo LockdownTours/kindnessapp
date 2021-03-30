@@ -17,7 +17,7 @@ function homepage() {
   $(".kindnessSuggestions")
     .show()
     .html(
-      "<span class='red'>Sick of lockdown?</span> <br> Try one of 100+ Actions to make the world a better place to live in"
+      "<span class='red'>Sick of lockdown?</span> <br> Try one of 100+ actions to make the world a better place"
     );
   $(".button1")
     .show()
