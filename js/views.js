@@ -13,6 +13,7 @@ function homepage() {
   setTimeout(function () {
     $(".kindnessLogo, .titleNav, .cookieDisclaimer").show();
   }, 200);
+  console.log("home");
 
   $(".kindnessSuggestions")
     .show()
